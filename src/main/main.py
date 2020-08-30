@@ -126,7 +126,7 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
             sys.stdout.flush()
             
             train_loss = train_loss + ((loss.item() - train_loss) / (i + 1))
-            acc = metrics.get_acc(model, data)
+            acc = metrics.get_acc(model, [data])
             train_acc = train_acc + ((acc - train_acc) / (i + 1))
 
             sys.stdout.write('Iterasi : {} setelah acc\n'.format(i))
