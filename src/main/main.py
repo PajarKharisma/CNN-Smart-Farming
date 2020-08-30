@@ -103,8 +103,8 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
         for i, (images, labels) in enumerate(train_loader):
             model.train()
 
-            images = images.to(device)
-            labels = labels.to(device)
+            images = images.to(Param.device)
+            labels = labels.to(Param.device)
             
             # Forward pass
             outputs = model(images)
