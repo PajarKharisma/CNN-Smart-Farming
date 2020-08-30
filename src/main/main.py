@@ -197,8 +197,8 @@ def print_model():
     summary(model, (3, 331, 331))
 
 def main():
-    # model = nasnet.NASNetALarge(num_classes=4)
-    model = simple_cnn.ConvNet(num_classes=4)
+    model = nasnet.NASNetALarge(num_classes=4)
+    # model = simple_cnn.ConvNet(num_classes=4)
     model = model.to(Param.device)
 
     optimizer = optim.Adam(model.parameters())
