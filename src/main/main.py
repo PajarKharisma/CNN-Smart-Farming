@@ -186,7 +186,7 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
         save_dir=Path.save_model,
         model=best_model,
         optimizer=optimizer,
-        epoch=Param.train_number_epochs + epoch_number,
+        epoch=Param.number_epochs + epoch_number,
         loss=best_loss,
         class_names=dataset_loader.get_class_names(Path.train_csv)
     )
