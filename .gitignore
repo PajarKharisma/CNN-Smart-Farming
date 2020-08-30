@@ -1,3 +1,4 @@
+.vscode
 /dataset/images
 models/*.pth
 log/result/*.out

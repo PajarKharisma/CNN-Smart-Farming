@@ -5,6 +5,8 @@ from datetime import datetime
 root_dir = os.getcwd()
 sys.path.append(root_dir)
 
+import pandas as pd
+
 import torch
 import torch.nn as nn
 import torchvision.utils
@@ -187,10 +189,9 @@ if __name__ == "__main__":
     sys.stdout.write(Param.desc+'\n\n')
 
     train_dataset, validation_dataset = dataset_load(validation_data_exist=True)
-    for img, label in validation_dataset:
-        print(img.size())
-        print(label)
-        print('-'*30)
+    
+    class_names = dataset_loader.get_class_names(Path.train_csv)
+    print(class_names)
 
     elapsed_time = time.time() - start_time
     sys.stdout.write(time.strftime("Finish in %H:%M:%S\n", time.gmtime(elapsed_time)))

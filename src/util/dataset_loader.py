@@ -29,3 +29,7 @@ class ImageDataset(Dataset):
             return len(self.df)
         else:
             return self.count
+
+def get_class_names(csv_path):
+    df = pd.read_csv(csv_path)
+    return sorted(set(df['disease_names']))

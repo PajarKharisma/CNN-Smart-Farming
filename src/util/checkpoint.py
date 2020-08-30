@@ -1,7 +1,7 @@
 import torch
 
-from src.config.Path import *
-from src.config.Param import *
+from src.config.path import *
+from src.config.param import *
 
 def save_checkpoint(**kwargs):
     data = kwargs
