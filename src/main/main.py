@@ -119,10 +119,16 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
+
+            sys.stdout.write('Iterasi : {} sebelum acc\n'.format(i))
+            sys.stdout.flush()
             
             train_loss = train_loss + ((loss.item() - train_loss) / (i + 1))
             acc = metrics.get_acc(model, train_loader)
             train_acc = train_acc + ((acc - train_acc) / (i + 1))
+
+            sys.stdout.write('Iterasi : {} setelah acc\n'.format(i))
+            sys.stdout.flush()
 
             if verbose and (i+1) % 100 == 0:
                 sys.stdout.write('Epoch [{}/{}], Step [{}/{}], Loss: {:.4f}\n'.format(epoch+1, num_epochs, i+1, total_step, loss.item()))
