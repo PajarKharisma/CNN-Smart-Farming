@@ -27,7 +27,7 @@ def get_loss(model, dataset, criterion):
     model.eval()
     total_loss = 0
     with torch.no_grad():
-        for i, (images, labels) in enumerate(train_loader):
+        for i, (images, labels) in enumerate(dataset):
             images = images.to(Param.device)
             labels = labels.to(Param.device)
             

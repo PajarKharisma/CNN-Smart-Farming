@@ -105,8 +105,10 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
 
         train_loss = 0
         train_acc = 0
-        for i, (images, labels) in enumerate(train_loader):
+        for i, data in enumerate(train_loader):
             model.train()
+
+            images, labels = data
 
             images = images.to(Param.device)
             labels = labels.to(Param.device)
@@ -124,7 +126,7 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
             sys.stdout.flush()
             
             train_loss = train_loss + ((loss.item() - train_loss) / (i + 1))
-            acc = metrics.get_acc(model, train_loader)
+            acc = metrics.get_acc(model, data)
             train_acc = train_acc + ((acc - train_acc) / (i + 1))
 
             sys.stdout.write('Iterasi : {} setelah acc\n'.format(i))
