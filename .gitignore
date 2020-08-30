@@ -3,3 +3,4 @@
 models/*.pth
 log/result/*.out
 log/plot/*.png
+log/result/*.out
