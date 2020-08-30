@@ -232,8 +232,8 @@ if __name__ == "__main__":
     sys.stdout.write('Process using '+str(Param.device)+'\n')
     sys.stdout.write(Param.desc+'\n\n')
 
-    print_model()
-    # main()
+    # print_model()
+    main()
 
     elapsed_time = time.time() - start_time
     sys.stdout.write(time.strftime("Finish in %H:%M:%S\n", time.gmtime(elapsed_time)))
