@@ -180,7 +180,8 @@ def training(model, loss_function, dataset, optimizer, loss, verbose=False, epoc
             model=best_model,
             optimizer=optimizer,
             epoch=Param.train_number_epochs + epoch_number,
-            loss=best_loss
+            loss=best_loss,
+            class_names=dataset_loader.get_class_names(Path.train_csv)
         )
 
 if __name__ == "__main__":
@@ -189,9 +190,6 @@ if __name__ == "__main__":
     sys.stdout.write(Param.desc+'\n\n')
 
     train_dataset, validation_dataset = dataset_load(validation_data_exist=True)
-    
-    class_names = dataset_loader.get_class_names(Path.train_csv)
-    print(class_names)
 
     elapsed_time = time.time() - start_time
     sys.stdout.write(time.strftime("Finish in %H:%M:%S\n", time.gmtime(elapsed_time)))

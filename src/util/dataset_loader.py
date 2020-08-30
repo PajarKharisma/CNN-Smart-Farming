@@ -32,4 +32,4 @@ class ImageDataset(Dataset):
 
 def get_class_names(csv_path):
     df = pd.read_csv(csv_path)
-    return sorted(set(df['disease_names']))
+    return sorted(set(df['disease_name']))
