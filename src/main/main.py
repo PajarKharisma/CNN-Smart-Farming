@@ -23,7 +23,9 @@ import src.util.metrics as metrics
 import src.util.visual as vis
 import src.util.checkpoint as ckp
 
+import src.nnarch.simple_cnn as simple_cnn
 import src.nnarch.nasnet as nasnet
+import src.nnarch.nasnet_mobile as nasnet_mobile
 
 from src.config.path import *
 from src.config.param import *
@@ -192,7 +194,8 @@ def print_model():
     summary(model, (3, 331, 331))
 
 def main():
-    model = nasnet.NASNetALarge(num_classes=4)
+    # model = nasnet.NASNetALarge(num_classes=4)
+    model = simple_cnn.ConvNet(num_classes=4)
     model = model.to(Param.device)
 
     optimizer = optim.Adam(model.parameters())
@@ -229,7 +232,8 @@ if __name__ == "__main__":
     sys.stdout.write('Process using '+str(Param.device)+'\n')
     sys.stdout.write(Param.desc+'\n\n')
 
-    main()
+    print_model()
+    # main()
 
     elapsed_time = time.time() - start_time
     sys.stdout.write(time.strftime("Finish in %H:%M:%S\n", time.gmtime(elapsed_time)))

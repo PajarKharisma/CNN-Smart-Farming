@@ -1,0 +1,23 @@
+# NASNET MOBILE
+----------------------------------------------------------------
+Total params: 4,237,206
+Trainable params: 4,237,206
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.57
+Forward/backward pass size (MB): 240.99
+Params size (MB): 16.16
+Estimated Total Size (MB): 257.73
+----------------------------------------------------------------
+
+# NASNET
+----------------------------------------------------------------
+Total params: 84,736,282
+Trainable params: 84,736,282
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 1.25
+Forward/backward pass size (MB): 2638.91
+Params size (MB): 323.24
+Estimated Total Size (MB): 2963.40
+----------------------------------------------------------------
