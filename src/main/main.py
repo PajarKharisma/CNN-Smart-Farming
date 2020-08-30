@@ -101,6 +101,8 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
 
     for epoch in range(Param.number_epochs):
         sys.stdout.write('Epoch : {}\n'.format(epoch))
+        sys.stdout.flush()
+
         train_loss = 0
         train_acc = 0
         for i, (images, labels) in enumerate(train_loader):
@@ -152,42 +154,42 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
         history_acc['train'].append(train_acc)
         history_acc['val'].append(validation_acc)
 
-        vis.show_plot(
-            epoch=history_loss['epoch'],
-            train_data=history_loss['train'],
-            val_data=history_loss['val'],
-            title='Loss Train dan Validasi',
-            xlabel='Epoch',
-            ylabel='Loss',
-            legend=['Train', 'Val'],
-            path=Path.save_plot+'Model Loss.png',
-            should_show=False,
-            should_save=True,
-            legend_loc='upper right'
-        )
+    vis.show_plot(
+        epoch=history_loss['epoch'],
+        train_data=history_loss['train'],
+        val_data=history_loss['val'],
+        title='Loss Train dan Validasi',
+        xlabel='Epoch',
+        ylabel='Loss',
+        legend=['Train', 'Val'],
+        path=Path.save_plot+'Model Loss.png',
+        should_show=False,
+        should_save=True,
+        legend_loc='upper right'
+    )
 
-        vis.show_plot(
-            epoch=history_loss['epoch'],
-            train_data=history_acc['train'],
-            val_data=history_acc['val'],
-            title='Akurasi Train dan Validasi',
-            xlabel='Epoch',
-            ylabel='Akurasi',
-            legend=['Train', 'Val'],
-            path=Path.save_plot+'Model Akurasi.png',
-            should_show=False,
-            should_save=True,
-            legend_loc='lower right'
-        )
+    vis.show_plot(
+        epoch=history_loss['epoch'],
+        train_data=history_acc['train'],
+        val_data=history_acc['val'],
+        title='Akurasi Train dan Validasi',
+        xlabel='Epoch',
+        ylabel='Akurasi',
+        legend=['Train', 'Val'],
+        path=Path.save_plot+'Model Akurasi.png',
+        should_show=False,
+        should_save=True,
+        legend_loc='lower right'
+    )
 
-        ckp.save_checkpoint(
-            save_dir=Path.save_model,
-            model=best_model,
-            optimizer=optimizer,
-            epoch=Param.train_number_epochs + epoch_number,
-            loss=best_loss,
-            class_names=dataset_loader.get_class_names(Path.train_csv)
-        )
+    ckp.save_checkpoint(
+        save_dir=Path.save_model,
+        model=best_model,
+        optimizer=optimizer,
+        epoch=Param.train_number_epochs + epoch_number,
+        loss=best_loss,
+        class_names=dataset_loader.get_class_names(Path.train_csv)
+    )
 
 def print_model():
     model = nasnet.NASNetALarge(num_classes=4)
