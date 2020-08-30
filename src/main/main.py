@@ -23,6 +23,8 @@ import src.util.metrics as metrics
 import src.util.visual as vis
 import src.util.checkpoint as ckp
 
+import src.nnarch.nasnet as nasnet
+
 from src.config.path import *
 from src.config.param import *
 
@@ -70,7 +72,7 @@ def dataset_load(split_data = False, validation_data_exist=False):
 
         return train_dataloader, validation_dataloader
 
-def training(model, loss_function, dataset, optimizer, loss, verbose=False, epoch_number=0):
+def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, verbose=False):
     criterion = loss_function
     train_loader, validation_loader = dataset
     optimizer = optimizer
@@ -184,12 +186,50 @@ def training(model, loss_function, dataset, optimizer, loss, verbose=False, epoc
             class_names=dataset_loader.get_class_names(Path.train_csv)
         )
 
+def print_model():
+    model = nasnet.NASNetALarge(num_classes=4)
+    model = model.to(Param.device)
+    summary(model, (3, 331, 331))
+
+def main():
+    model = nasnet.NASNetALarge(num_classes=4)
+    model = model.to(Param.device)
+
+    optimizer = optim.Adam(model.parameters())
+    epoch = 0
+    loss = sys.float_info.max
+
+    if(Param.pretrained == True):
+        checkpoint  = ckp.load_checkpoint(load_dir=Path.load_model)
+        
+        model.load_state_dict(checkpoint['state_dict'])
+        optimizer.load_state_dict(checkpoint['optimizer'])
+        epoch = checkpoint['epoch']
+        loss = checkpoint['loss']
+
+    criterion = nn.CrossEntropyLoss()
+    sys.stdout.write('# READING DATASET\n')
+
+    dataset = dataset_load(validation_data_exist=True)
+
+    sys.stdout.write('# FINISHED READING DATASET AND START TRAINING\n\n')
+    sys.stdout.flush()
+
+    training(
+        model=model,
+        loss_function=criterion,
+        dataset=dataset,
+        optimizer=optimizer,
+        loss=loss,
+        epoch_number=epoch
+    )
+
 if __name__ == "__main__":
     start_time = time.time()
     sys.stdout.write('Process using '+str(Param.device)+'\n')
     sys.stdout.write(Param.desc+'\n\n')
 
-    train_dataset, validation_dataset = dataset_load(validation_data_exist=True)
+    main()
 
     elapsed_time = time.time() - start_time
     sys.stdout.write(time.strftime("Finish in %H:%M:%S\n", time.gmtime(elapsed_time)))

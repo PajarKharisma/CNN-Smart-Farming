@@ -9,6 +9,6 @@ class Param():
     batch_size = 32
     number_epochs = 100
     data_split = 0.9
-    input_size = (300, 300)
+    input_size = (331, 331)
     pretrained = False
     desc = 'FIRST TRY ' + str(datetime.datetime.now())

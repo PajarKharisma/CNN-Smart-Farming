@@ -9,7 +9,7 @@ def save_checkpoint(**kwargs):
         'desc' : Param.desc,
         'epoch': data['epoch'],
         'loss' : data['loss'],
-        'class_names' : data['class_names']
+        'class_names' : data['class_names'],
         'state_dict': data['model'].state_dict(),
         'optimizer': data['optimizer'].state_dict()
     }
