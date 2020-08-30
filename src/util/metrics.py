@@ -12,7 +12,7 @@ def get_acc(model, dataset):
     with torch.no_grad():
         correct = 0
         total = 0
-        for images, labels in dataset:
+        for i, (images, labels) in enumerate(dataset):
             images = images.to(Param.device)
             labels = labels.to(Param.device)
             
