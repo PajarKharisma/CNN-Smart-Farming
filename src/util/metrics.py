@@ -8,7 +8,6 @@ import numpy as np
 from src.config.param import *
 
 def get_acc(model, dataset):
-    print(dataset)
     model.eval()
     with torch.no_grad():
         correct = 0
