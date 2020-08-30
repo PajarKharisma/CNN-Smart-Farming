@@ -48,7 +48,7 @@ def dataset_load(split_data = False, validation_data_exist=False):
             train_set, val_set = torch.utils.data.random_split(dataset, [train_length, val_length])
 
             train_dataloader = DataLoader(train_set, batch_size=Param.batch_size, shuffle=True)
-            validation_dataloader = DataLoader(val_set, batch_size=Param.batch_size * 2, shuffle=True)
+            validation_dataloader = DataLoader(val_set, batch_size=Param.batch_size, shuffle=True)
 
             return train_dataloader, validation_dataloader
         else:
