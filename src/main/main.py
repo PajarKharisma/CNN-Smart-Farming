@@ -100,6 +100,7 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
         best_model = copy.deepcopy(model)
 
     for epoch in range(Param.number_epochs):
+        sys.stdout.write('Epoch : {}\n'.format(epoch))
         train_loss = 0
         train_acc = 0
         for i, (images, labels) in enumerate(train_loader):
