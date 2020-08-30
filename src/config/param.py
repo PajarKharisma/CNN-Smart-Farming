@@ -7,7 +7,7 @@ class Param():
     #Hyperparameter
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     batch_size = 23
-    number_epochs = 50
+    number_epochs = 5
     data_split = 0.9
     input_size = (300, 300)
     pretrained = False

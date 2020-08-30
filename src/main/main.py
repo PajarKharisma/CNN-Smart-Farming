@@ -224,7 +224,8 @@ def main():
         dataset=dataset,
         optimizer=optimizer,
         loss=loss,
-        epoch_number=epoch
+        epoch_number=epoch,
+        verbose=True
     )
 
 if __name__ == "__main__":
