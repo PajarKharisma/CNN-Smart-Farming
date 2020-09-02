@@ -35,7 +35,7 @@ def create_dataset():
     data_preparation.create_csv(dir_csv=Path.train_csv, dir_images=Path.train_images)
     # data_preparation.data_augmentation(dir_images=Path.train_images)
 
-def dataset_load(split_data = False, validation_data_exist=False):
+def dataset_load(split_data=False, validation_data_exist=False):
     transform = transforms.Compose([transforms.Resize(Param.input_size), transforms.ToTensor()])
 
     if validation_data_exist == False:
@@ -217,7 +217,7 @@ def main():
     criterion = nn.CrossEntropyLoss()
     sys.stdout.write('# READING DATASET\n')
 
-    dataset = dataset_load(validation_data_exist=True)
+    dataset = dataset_load(split_data=True,validation_data_exist=False)
 
     sys.stdout.write('# FINISHED READING DATASET AND START TRAINING\n\n')
     sys.stdout.flush()
@@ -237,9 +237,9 @@ if __name__ == "__main__":
     sys.stdout.write('Process using '+str(Param.device)+'\n')
     sys.stdout.write(Param.desc+'\n\n')
 
-    create_dataset()
+    # create_dataset()
     # print_model()
-    # main()
+    main()
 
     elapsed_time = time.time() - start_time
     sys.stdout.write(time.strftime("Finish in %H:%M:%S\n", time.gmtime(elapsed_time)))
