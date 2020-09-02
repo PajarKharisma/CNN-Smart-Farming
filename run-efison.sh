@@ -10,7 +10,7 @@
 #SBATCH --error=log/result/result-%j.err
 
 module load anaconda3
-conda init bash
+eval $(conda shell.bash hook)
 conda activate ../.venv
 
 #%Module
