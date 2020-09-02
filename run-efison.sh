@@ -10,8 +10,8 @@
 #SBATCH --error=log/result/result-%j.err
 
 module load anaconda3
-conda init fish
-conda activate $WORK/.venv
+conda init tcsh
+conda activate ../.venv
 
 #%Module
 module load cuda/10.2-cuDNN7.6.5
