@@ -10,7 +10,7 @@
 #SBATCH --error=log/result/result-%j.err
 
 module load anaconda3
-conda init bash
+conda init fish
 conda activate ../.venv
 
 #%Module
