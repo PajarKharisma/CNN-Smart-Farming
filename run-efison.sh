@@ -16,5 +16,6 @@ conda activate ../.venv
 #%Module
 module load cuda/10.2-cuDNN7.6.5
 module load tensorrt/6-cuda10.2
+module list
 
 python3 src/main/main.py
