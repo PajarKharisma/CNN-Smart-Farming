@@ -11,7 +11,7 @@
 
 module load anaconda3
 conda init fish
-conda activate ../.venv
+conda activate $WORK/.venv
 
 #%Module
 module load cuda/10.2-cuDNN7.6.5
