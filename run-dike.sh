@@ -6,7 +6,6 @@
 #
 #SBATCH --nodes=1
 #SBATCH --time=20:00:00
-#SBATCH --nodelist=komputasi09
 
 source ../.venv/bin/activate
 srun python3 src/main/main.py
