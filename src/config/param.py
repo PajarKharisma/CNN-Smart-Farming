@@ -11,4 +11,4 @@ class Param():
     data_split = 0.9
     input_size = (331, 331)
     pretrained = False
-    desc = 'FIRST TRY ' + str(datetime.datetime.now())
+    desc = 'NASNET WITH SIGMOID ' + str(datetime.datetime.now())
