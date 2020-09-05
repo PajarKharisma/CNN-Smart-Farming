@@ -27,6 +27,7 @@ import src.util.checkpoint as ckp
 import src.nnarch.simple_cnn as simple_cnn
 import src.nnarch.nasnet as nasnet
 import src.nnarch.nasnet_mobile as nasnet_mobile
+import src.nnarch.bstcnn as bstcnn
 
 from src.config.path import *
 from src.config.param import *
@@ -198,8 +199,9 @@ def print_model():
     summary(model, (3, 331, 331))
 
 def main():
-    model = nasnet.NASNetALarge(num_classes=4)
+    # model = nasnet.NASNetALarge(num_classes=4)
     # model = simple_cnn.ConvNet(num_classes=4)
+    model = bstcnn.BstCnn(num_classes=4)
     model = model.to(Param.device)
 
     optimizer = optim.Adam(model.parameters())

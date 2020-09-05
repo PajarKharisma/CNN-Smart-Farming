@@ -558,10 +558,7 @@ class NASNetALarge(nn.Module):
         self.relu = nn.ReLU()
         self.avg_pool = nn.AvgPool2d(11, stride=1, padding=0)
         self.dropout = nn.Dropout()
-        self.last_linear = nn.Sequential(
-            nn.Linear(24*filters, self.num_classes),
-            nn.Sigmoid()
-        )
+        self.last_linear = nn.Linear(24*filters, self.num_classes)
 
     def features(self, input):
         x_conv0 = self.conv0(input)

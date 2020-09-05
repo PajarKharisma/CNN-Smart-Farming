@@ -9,6 +9,6 @@ class Param():
     batch_size = 8
     number_epochs = 100
     data_split = 0.9
-    input_size = (331, 331)
+    input_size = (400, 400)
     pretrained = False
-    desc = 'NASNET WITH SIGMOID ' + str(datetime.datetime.now())
+    desc = 'BST-CNN ' + str(datetime.datetime.now())
