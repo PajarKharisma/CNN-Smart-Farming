@@ -47,7 +47,7 @@ class BstCnn(nn.Module):
         self.fc = nn.Sequential(
             nn.Linear(16*100*100, 512),
             nn.ReLU(inplace=True),
-            nn.Linear(512, 256)
+            nn.Linear(512, 256),
             nn.ReLU(inplace=True),
             nn.Linear(256, self.num_classes)
         )
