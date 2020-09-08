@@ -23,6 +23,7 @@ import src.util.dataset_loader as dataset_loader
 import src.util.metrics as metrics
 import src.util.visual as vis
 import src.util.checkpoint as ckp
+import src.util.read_desc as read_desc
 
 import src.nnarch.simple_cnn as simple_cnn
 import src.nnarch.nasnet as nasnet
@@ -188,6 +189,7 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
         save_dir=Path.save_model,
         model=best_model,
         optimizer=optimizer,
+        desc=read_desc.get_desc(Path.desc_disease),
         epoch=Param.number_epochs + epoch_number,
         loss=best_loss,
         class_names=dataset_loader.get_class_names(Path.train_csv)
@@ -201,7 +203,7 @@ def print_model():
 def main():
     # model = nasnet.NASNetALarge(num_classes=4)
     # model = simple_cnn.ConvNet(num_classes=4)
-    model = bstcnn.BstCnn(num_classes=4)
+    model = bstcnn.BstCnn(num_classes=3)
     model = model.to(Param.device)
 
     optimizer = optim.Adam(model.parameters())
@@ -237,7 +239,7 @@ def main():
 if __name__ == "__main__":
     start_time = time.time()
     sys.stdout.write('Process using '+str(Param.device)+'\n')
-    sys.stdout.write(Param.desc+'\n\n')
+    sys.stdout.write(Param.title+'\n\n')
 
     # create_dataset()
     # print_model()

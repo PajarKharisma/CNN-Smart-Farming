@@ -10,6 +10,7 @@ class Path():
     load_model = root_dir + '/models/model.pth'
     save_plot = root_dir+'/log/plot/'
 
+    desc_disease = path + '/desc'
     train_images = path + '/images/'
     validation_images = path + '/images/validation/'
     train_csv = path + '/train.csv'

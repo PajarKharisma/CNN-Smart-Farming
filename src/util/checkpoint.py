@@ -6,10 +6,11 @@ from src.config.param import *
 def save_checkpoint(**kwargs):
     data = kwargs
     checkpoint = {
-        'desc' : Param.desc,
+        'title' : Param.title,
         'epoch': data['epoch'],
         'loss' : data['loss'],
         'class_names' : data['class_names'],
+        'desc' : data['desc'],
         'state_dict': data['model'].state_dict(),
         'optimizer': data['optimizer'].state_dict()
     }
