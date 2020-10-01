@@ -190,6 +190,7 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
         model=best_model,
         optimizer=optimizer,
         desc=read_desc.get_desc(Path.desc_disease),
+        solution=read_desc.get_solution(Path.solution_disease),
         epoch=Param.number_epochs + epoch_number,
         loss=best_loss,
         class_names=dataset_loader.get_class_names(Path.train_csv)

@@ -1,5 +1,6 @@
 .vscode
-/dataset/images
+/dataset/hama/images
+/dataset/penyakit/images
 models/*.pth
 log/result/*.out
 log/plot/*.png

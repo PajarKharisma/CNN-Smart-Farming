@@ -11,6 +11,7 @@ def save_checkpoint(**kwargs):
         'loss' : data['loss'],
         'class_names' : data['class_names'],
         'desc' : data['desc'],
+        'solution' : data['solution'],
         'state_dict': data['model'].state_dict(),
         'optimizer': data['optimizer'].state_dict()
     }
