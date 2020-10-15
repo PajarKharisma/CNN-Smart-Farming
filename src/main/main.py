@@ -114,6 +114,7 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
 
             images = images.to(Param.device)
             labels = labels.to(Param.device)
+            print(labels)
             
             # Forward pass
             outputs = model(images)
