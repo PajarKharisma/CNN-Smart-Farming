@@ -107,7 +107,6 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
         train_loss = 0
         train_acc = 0
         for i, data in enumerate(train_loader):
-            print(i)
             model.train()
 
             images, labels = data
@@ -205,8 +204,8 @@ def print_model():
 def main():
     # model = nasnet.NASNetALarge(num_classes=4)
     # model = simple_cnn.ConvNet(num_classes=4)
-    # model = bstcnn.BstCnn(num_classes=4)
-    model = nasnet_mobile.NASNetAMobile(num_classes=4)
+    model = bstcnn.BstCnn(num_classes=4)
+    # model = nasnet_mobile.NASNetAMobile(num_classes=4)
     model = model.to(Param.device)
 
     optimizer = optim.Adam(model.parameters())
