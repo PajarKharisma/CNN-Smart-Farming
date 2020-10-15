@@ -3,7 +3,7 @@ import uuid
 
 class Path():
     root_dir = os.getcwd()
-    path = root_dir + '/dataset/hama/'
+    path = root_dir + '/dataset/penyakit/'
     
     log_dir = root_dir + '/log/'
     save_model = root_dir + '/models/model-' + str(uuid.uuid4().hex) + '.pth'
