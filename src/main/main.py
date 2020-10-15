@@ -103,11 +103,6 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
     if Param.pretrained == True:
         best_model = copy.deepcopy(model)
 
-    for data in train_loader:
-        images, labels = data
-        print(images.size())
-    
-    return
     for epoch in range(Param.number_epochs):
         train_loss = 0
         train_acc = 0
@@ -236,6 +231,7 @@ def main():
     sys.stdout.write('# FINISHED READING DATASET AND START TRAINING\n\n')
     sys.stdout.flush()
 
+    return
     training(
         model=model,
         loss_function=criterion,
