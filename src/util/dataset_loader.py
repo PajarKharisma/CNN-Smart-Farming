@@ -19,10 +19,10 @@ class ImageDataset(Dataset):
         img = Image.open(self.images_path + self.df['img'][index])
         label = int(self.df['disease_index'][index])
 
+        img = img.convert('RGB')
         if transforms is not None:
             img = self.transform(img)
         
-        print('File Name : {} | File Shape : {}'.format(self.images_path + self.df['img'][index], img.size()))
         return img, label
     
     def __len__(self):
