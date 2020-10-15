@@ -106,16 +106,14 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
     for epoch in range(Param.number_epochs):
         train_loss = 0
         train_acc = 0
-        print(train_loader.size())
         for i, data in enumerate(train_loader):
+            print(i)
             model.train()
 
             images, labels = data
 
             images = images.to(Param.device)
             labels = labels.to(Param.device)
-            print('Images : {}'.format(images.size()))
-            print('Labels : {}'.format(labels.size()))
             
             # Forward pass
             outputs = model(images)
