@@ -106,6 +106,7 @@ def training(model, loss_function, dataset, optimizer, loss, epoch_number=0, ver
     for epoch in range(Param.number_epochs):
         train_loss = 0
         train_acc = 0
+        print(train_loader.size())
         for i, data in enumerate(train_loader):
             model.train()
 
