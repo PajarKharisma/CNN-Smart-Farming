@@ -11,4 +11,4 @@ class Param():
     data_split = 0.9
     input_size = (300, 300)
     pretrained = False
-    title = 'Nasnet Mobile ' + str(datetime.datetime.now())
+    title = 'BST CNN ' + str(datetime.datetime.now())
