@@ -6,7 +6,7 @@ import cv2
 from PIL import Image
 
 def create_csv(dir_csv, dir_images):
-    class_names = os.listdir(dir_images)
+    class_names = sorted(os.listdir(dir_images))
     dataset = []
 
     for class_name in class_names:
