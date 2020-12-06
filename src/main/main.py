@@ -202,10 +202,10 @@ def print_model():
     summary(model, (3, 331, 331))
 
 def main():
-    model = nasnet.NASNetALarge(num_classes=6)
+    # model = nasnet.NASNetALarge(num_classes=6)
     # model = simple_cnn.ConvNet(num_classes=4)
     model = bstcnn.BstCnn(num_classes=6)
-    model = nasnet_mobile.NASNetAMobile(num_classes=6)
+    # model = nasnet_mobile.NASNetAMobile(num_classes=6)
     model = model.to(Param.device)
 
     optimizer = optim.Adam(model.parameters())
